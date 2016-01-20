@@ -1,0 +1,47 @@
+nav .block .navbar-default .navbar-nav > .active > a:before, 
+nav .block .navbar-default .navbar-nav > .active > a:focus:before, 
+nav .block .navbar-default .navbar-nav > .active > a:hover:before {
+	background-color: #8D7153;
+}
+.title {
+	color: #0c0b50;
+}
+.title span {
+	color: #8D7153;
+}
+
+#slider .block .owl-carousel .owl-pagination .active {
+	background-color: #8D7153;
+}
+
+#slider .block .owl-carousel img {
+	padding-bottom: 0px;
+}
+
+.fpw-page-title {
+	text-align: left;
+}
+
+a .fpw-page-title {
+    color: #8D7153;
+}
+
+
+/* Buscador */
+
+.row.buscador {
+    /* width: 60%; */
+    padding-left: 30%;
+    padding-right: 30%;
+    margin-top: 20px;
+}
+
+/* Glosarios páginas internas */
+
+a.name_directory_startswith {
+    display: none;
+}
+
+.glosarios-internos div#primary {
+    padding-left: 50px;
+}
