@@ -61,7 +61,15 @@ get_header(); ?>
                 </div><!-- .col-md-12 close -->
             </div><!-- .row close -->
             <div class="row buscador">
-                <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+              <div class="col-md-3"></div>
+              <div class="col-md-9">
+                <form method="get" id="searchform" action="" role="search" class="form-inline">
+                      <div class="form-group">
+                      <input type="text" class="form-control" name="s" value="" id="s" placeholder="Search &hellip;"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                      </div>
+                </form>
+              </div>  
+              <div class="col-md-3"></div>
             </div>
         </div><!-- .containe close -->
     </section><!-- #call-to-action close -->
