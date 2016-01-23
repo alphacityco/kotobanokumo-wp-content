@@ -22,7 +22,9 @@ get_header(); ?>
 	                       WHERE kumo_name_directory.ID = kumo_name_directory_name.directory
 	                      ) as category
 			                FROM kumo_name_directory_name
-			                WHERE kumo_name_directory_name.description like '%" .  get_search_query() . "%'";
+			                WHERE kumo_name_directory_name.description like '%" .  get_search_query() . "%'
+			                OR    kumo_name_directory_name.name like '%" .  get_search_query() . "%'
+			                ";
 			                 
 			
 			$resultados = $wpdb->get_results( $querystring );     	
