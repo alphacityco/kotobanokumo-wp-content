@@ -10,10 +10,27 @@ get_header(); ?>
 	<div class="container glosarios-internos">
 	  <div id="primary" class="content-area">
 		  <main id="main" class="site-main" role="main">
-          	
-          	
-		<?php if ( have_posts() ) : ?>
-
+      
+      <?php    	
+    
+      $querystring = "SELECT
+			                kumo_name_directory_name.name as name,
+			                kumo_name_directory_name.description,
+			                  (SELECT
+	                       kumo_name_directory.name as categoria
+	                       FROM kumo_name_directory
+	                       WHERE kumo_name_directory.ID = kumo_name_directory_name.directory
+	                      ) as category
+			                FROM kumo_name_directory_name
+			                WHERE kumo_name_directory_name.description like '%" .  $_GET['s'] . "%'";
+			                 
+			
+			$resultados = $wpdb->get_results( $querystring );     	
+		
+		?>
+		
+		<?php if ( $resultados ) : ?>
+      
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( esc_html__( 'Resultados de su b&uacute;squeda: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
@@ -24,19 +41,7 @@ get_header(); ?>
 			
 			
 			
-			$querystring = "SELECT
-			                kumo_name_directory_name.name as name,
-			                kumo_name_directory_name.description,
-			                  (SELECT
-	                       kumo_name_directory.name as categoria
-	                       FROM kumo_name_directory
-	                       WHERE kumo_name_directory.ID = kumo_name_directory_name.directory
-	                      ) as category
-			                FROM kumo_name_directory_name
-			                WHERE kumo_name_directory_name.description like '%" . get_search_query() . "%'";
-			                 
-			                 
-			$resultados = $wpdb->get_results( $querystring );
+			
 			$contador = 1;
 			$contador_total = 0;
 			$glosario_actual;
@@ -108,7 +113,7 @@ get_header(); ?>
 			<?php the_posts_navigation(); ?>
 
 		<?php else : ?>
-
+      
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 		<?php endif; ?>
